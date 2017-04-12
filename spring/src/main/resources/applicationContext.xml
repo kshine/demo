@@ -4,4 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="userServiceId" class="com.freedom.a_ioc.UserServiceImpl"></bean>
+
+    <bean id="bookDaoId" class="com.freedom.b_di.BookDaoImpl"></bean>
+    <bean id="bookServiceId" class="com.freedom.b_di.BookServiceImpl">
+        <property name="bookDao" ref="bookDaoId"></property>
+    </bean>
+
 </beans>
