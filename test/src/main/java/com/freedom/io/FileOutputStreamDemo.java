@@ -6,6 +6,8 @@ import java.io.IOException;
 
 /**
  * Created by kshine on 2017/4/16.
+ * 输出流 目的地文件不存在会自动创建一个
+ * 输入流不会
  */
 public class FileOutputStreamDemo {
     public static void main(String[] args) throws IOException {
