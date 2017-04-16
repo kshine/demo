@@ -13,7 +13,7 @@
       <module name="beetlsql" target="1.5" />
       <module name="mybatis" target="1.8" />
       <module name="spring" target="1.8" />
-      <module name="test" target="1.5" />
+      <module name="test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
