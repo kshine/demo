@@ -1,4 +1,4 @@
-package com.freedom.io;
+package com.freedom.io.byteio;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

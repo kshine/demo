@@ -1,4 +1,4 @@
-package com.freedom.io;
+package com.freedom.io.byteio;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -18,5 +18,7 @@ public class BufferedInputStreamDemo {
         }
 
         bis.close();
+
+
     }
 }
