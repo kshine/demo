@@ -25,6 +25,9 @@ import java.util.Map;
  *  da7e1886f2d07cbe
  */
 public class Demo01 {
+
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+
     public static void main(String[] args) throws IOException {
 
         String appSign = "889890ad6f9844b1929e65a4c376656a";
@@ -38,26 +41,34 @@ public class Demo01 {
                         .add("Content-Type",headersMap.get("Content-Type"))
                         .build();
 
-        System.out.println(headers);
+        String json = "{ \"msisdn\":\"15168598761\",\"subTitle\":\"001\"}";
+        System.out.println(json);
+        RequestBody body = RequestBody.create(JSON, json);
+        System.out.println(body);
 
-        RequestBody formBody = new FormBody.Builder()
-                .add("msisdn", "15168598761")
-                .add("subTitle","001")
-                .build();
+//        RequestBody formBody = new FormBody.Builder()
+//                .add("msisdn", "15168598761")
+//                .add("subTitle","001")
+//                .build();
+
+
+
+
 
         final OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
                 .headers(headers)
-                .post(formBody)
+                .post(body)
                 .build();
+
+
 
         Response response = okHttpClient.newCall(request).execute();
         //code  description
 
         System.out.println(response);
         System.out.println(response.headers());
-        System.out.println(response.body().charStream().read());
 
 
 

@@ -27,3 +27,12 @@ hs_err_pid*
 .idea/inspectionProfiles/
 .idea/workspace.xml
 spring/target/
+.idea/dataSources.local.xml
+.idea/dataSources/
+file.txt
+fos2.txt
+mybatis/src/main/java/
+mybatis/src/test/
+test/src/main/resources/
+test/src/test/
+test/target/
