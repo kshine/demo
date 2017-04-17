@@ -19,20 +19,26 @@ import java.util.Map;
  *
  *  App密钥
  *  3b7f06fb3ec9991f
+ *
+ *
+ *  476affecfe1a48dc9c78b7f7ad01cb71
+ *  da7e1886f2d07cbe
  */
 public class Demo01 {
     public static void main(String[] args) throws IOException {
 
-        String appSign = "476affecfe1a48dc9c78b7f7ad01cb71";
-        String appKey = "da7e1886f2d07cbe";
+        String appSign = "889890ad6f9844b1929e65a4c376656a";
+        String appKey = "3b7f06fb3ec9991f";
         Map<String,String> headersMap = HttpUtils.getHeaders(appSign,appKey);
         String url = "http://211.138.118.14:1100/callshine/qryUserCondition/v1";
         Headers headers =new Headers.Builder()
-//                .add("Host","aep.api.cmccopen.cn:1100")
+                .add("Host","aep.api.cmccopen.cn")
                         .add("Authorization",headersMap.get("Authorization"))
                         .add("X-WSSE",headersMap.get("X-WSSE"))
                         .add("Content-Type",headersMap.get("Content-Type"))
                         .build();
+
+        System.out.println(headers);
 
         RequestBody formBody = new FormBody.Builder()
                 .add("msisdn", "15168598761")
