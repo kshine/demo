@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
  * 把字节流转换成字符流
  * 字符流=字节流+编码表
  * OutputStreamWriter(OutputStream out,String charsetName)
+ * 简化写法 FileWriter  FileReader
  */
 public class OutputStreamWriterDemo {
     public static void main(String[] args) throws Exception {
