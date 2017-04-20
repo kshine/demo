@@ -1,9 +1,11 @@
 package com.freedom.okhttp;
 
 import com.freedom.util.HttpUtils;
+import com.google.gson.Gson;
 import okhttp3.*;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -41,8 +43,11 @@ public class Demo01 {
                         .add("Content-Type",headersMap.get("Content-Type"))
                         .build();
 
-        String json = "{ \"msisdn\":\"15168598761\",\"subTitle\":\"001\"}";
-        System.out.println(json);
+        Gson gson = new Gson();
+        Map<String,String> map = new HashMap<String,String>();
+        map.put("msisdn", "15168598761");
+        map.put("subTitle","001");
+        String json =gson.toJson(map);
         RequestBody body = RequestBody.create(JSON, json);
         System.out.println(body);
 
