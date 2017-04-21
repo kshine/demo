@@ -9,13 +9,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class TestIoc {
 
-    @Test
-    public void testIoc(){
+    public static void main(String[] args) throws Exception {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = (UserService) ac.getBean("userServiceId");
         System.out.println(userService);
         userService.addUser();
-    }
 
+        //销毁如何实现？？
+        ac.getClass().getMethod("close").invoke(ac);
+
+    }
 
 }

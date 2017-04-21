@@ -16,6 +16,7 @@ public class BookServiceImpl implements BookService {
     }
 
     public BookServiceImpl(){
+        //默认加载
         System.out.println("BookServiceImpl 被new了");
     }
 }

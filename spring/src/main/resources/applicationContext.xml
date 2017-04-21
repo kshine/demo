@@ -3,11 +3,32 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userServiceId" class="com.freedom.a_ioc.UserServiceImpl"></bean>
+    <!--1 直接获取bean 控制反转-->
+    <!--生命周期  init-method 初始化方法  destory-method 销销毁方法 -->
+    <bean id="userServiceId" class="com.freedom.a_ioc.UserServiceImpl"
+          init-method="myInit" destroy-method="myDestory"></bean>
 
+    <!--2 依赖注入bean -->
     <bean id="bookDaoId" class="com.freedom.b_di.BookDaoImpl"></bean>
     <bean id="bookServiceId" class="com.freedom.b_di.BookServiceImpl">
         <property name="bookDao" ref="bookDaoId"></property>
     </bean>
 
+    <!--xml装配bean 三种方式
+    1.默认构造    id class  -->
+
+    <!--2 静态工厂  factory-method  限定静态工程方法-->
+    <bean id="userServiceFactoryId" class="com.freedom.c_bean.MyBeanFactory"
+          factory-method="createService"></bean>
+
+    <!--3 实例工厂 -->
+    <bean id="myBeanFactoryId" class="com.freedom.c_bean.MyBeanFactory"></bean>
+    <bean id="userServiceFactoryId2" factory-bean="myBeanFactoryId"
+          factory-method="createService2"></bean>
+
+    <!-- bean种类  普通bean
+                  factoryBean 特殊bean，用于生成另一个特定的bean
+                  beanFactory 工厂，用于生成任意bean。 -->
+
+    <!-- scope 单例 singleton  多例 prototype -->
 </beans>

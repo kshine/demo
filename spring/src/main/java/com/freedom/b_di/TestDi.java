@@ -8,10 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by kuiyuxiang on 2017/4/12.
  */
 public class TestDi {
-    @Test
-    public void testDi(){
+    public static void main(String[] args) {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-        BookService bookService =(BookService)ac.getBean("bookServiceId");
-        bookService.addBook();
+      //  BookService bookService =(BookService)ac.getBean("bookServiceId");
+//        bookService.addBook();
     }
 }
