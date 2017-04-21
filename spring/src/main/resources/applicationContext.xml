@@ -5,13 +5,13 @@
 
     <!--1 直接获取bean 控制反转-->
     <!--生命周期  init-method 初始化方法  destory-method 销销毁方法 -->
-    <bean id="userServiceId" class="com.freedom.a_ioc.UserServiceImpl"
-          init-method="myInit" destroy-method="myDestory"></bean>
+    <bean id="userServiceId" class="com.freedom.a_ioc.UserServiceImpl" lazy-init="true"
+          init-method="myInit" destroy-method="myDestory"/>
 
     <!--2 依赖注入bean -->
-    <bean id="bookDaoId" class="com.freedom.b_di.BookDaoImpl"></bean>
-    <bean id="bookServiceId" class="com.freedom.b_di.BookServiceImpl">
-        <property name="bookDao" ref="bookDaoId"></property>
+    <bean id="bookDaoId" class="com.freedom.b_di.BookDaoImpl"/>
+    <bean id="bookServiceId" class="com.freedom.b_di.BookServiceImpl" lazy-init="true">
+        <property name="bookDao" ref="bookDaoId"/>
     </bean>
 
     <!--xml装配bean 三种方式
@@ -19,16 +19,65 @@
 
     <!--2 静态工厂  factory-method  限定静态工程方法-->
     <bean id="userServiceFactoryId" class="com.freedom.c_bean.MyBeanFactory"
-          factory-method="createService"></bean>
+          factory-method="createService"/>
 
     <!--3 实例工厂 -->
-    <bean id="myBeanFactoryId" class="com.freedom.c_bean.MyBeanFactory"></bean>
+    <bean id="myBeanFactoryId" class="com.freedom.c_bean.MyBeanFactory"/>
     <bean id="userServiceFactoryId2" factory-bean="myBeanFactoryId"
-          factory-method="createService2"></bean>
+          factory-method="createService2"/>
 
     <!-- bean种类  普通bean
                   factoryBean 特殊bean，用于生成另一个特定的bean
                   beanFactory 工厂，用于生成任意bean。 -->
 
     <!-- scope 单例 singleton  多例 prototype -->
+
+    <!--属性注入方式
+        手动装配 一般进行配置信息都采用手动  基于xml装配：构造方法、setter方法
+        自动装配：struts和spring 整合可以自动装配
+	    byType：按类型装配 byName：按名称装配   constructor构造装配 auto： 不确定装配。
+
+        <constructor-arg> 用于配置构造方法一个参数argument
+        name ：参数的名称
+		value：设置普通数据
+		ref：引用数据，一般是另一个bean id值
+		index ：参数的索引号，从0开始 。如果只有索引，匹配到了多个构造方法时，默认使用第一个。
+		type ：确定参数类型
+-->
+    <!-- name  value -->
+    <bean id="userid" class="com.freedom.d_xml.a_constructor.User">
+        <constructor-arg name="username" value="jack"/>
+        <constructor-arg name="age" value="18" />
+    </bean>
+
+    <!--index type -->
+    <bean id="userid2" class="com.freedom.d_xml.a_constructor.User">
+        <constructor-arg index="0" type="java.lang.String" value="jack2"/>
+        <constructor-arg index="1" type="java.lang.Integer" value="182" />
+    </bean>
+
+    <!--setter setter方法构造 -->
+    <bean id="homeAddrId" class="com.freedom.d_xml.b_setter.Address">
+        <property name="addr" value="阜南"></property>
+        <property name="tel" value="119"></property>
+    </bean>
+
+    <bean id="companyAddrId" class="com.freedom.d_xml.b_setter.Address">
+        <property name="addr" value="宁波"/>
+        <property name="tel" value="120" />
+    </bean>
+    <!-- El表达式 用value  否则ref 引用另一个bean
+         静态方法 用 T{}
+         可以用链式方法
+     -->
+    <bean id="personId" class="com.freedom.d_xml.b_setter.Person">
+        <property name="pname" value="Tom"/>
+        <property name="age" value="#{18}"/>
+        <property name="homeAddr" value="#{homeAddrId}"/>
+        <property name="companyAddr" ref="companyAddrId" />
+    </bean>
+
+    
+
+
 </beans>
