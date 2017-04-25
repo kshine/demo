@@ -33,7 +33,4 @@ test/target/
 spring/target/
 mybatis/target/
 beetlsql/target/
-spring/src/test/
-test/src/main/java/com/freedom/io/characterio/
-test/src/main/resources/
-test/src/test/
+
