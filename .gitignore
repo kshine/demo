@@ -2,6 +2,11 @@
 ### Java template
 # Compiled class file
 
+## File-based project format:
+*.iws
+*.iml
+*.ipr
+
 # Log file
 *.log
 
@@ -23,15 +28,12 @@
 hs_err_pid*
 
 .gitignore
-.idea/inspectionProfiles/
-.idea/workspace.xml
+.idea/
+test/target/
 spring/target/
-.idea/dataSources.local.xml
-.idea/dataSources/
-file.txt
-fos2.txt
-mybatis/src/main/java/
-mybatis/src/test/
+mybatis/target/
+beetlsql/target/
+spring/src/test/
+test/src/main/java/com/freedom/io/characterio/
 test/src/main/resources/
 test/src/test/
-test/target/
