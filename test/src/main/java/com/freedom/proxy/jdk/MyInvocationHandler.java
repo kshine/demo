@@ -23,6 +23,11 @@ public class MyInvocationHandler implements InvocationHandler {
         this.target = target;
     }
 
+    /**
+     * 动态代理类执行的方法 就是invoke方法
+     * proxy 就是动态代理类
+     * method args 就是实现类上方执行的方法和传入的参数
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // 程序执行前加入逻辑，MethodBeforeAdviceInterceptor
