@@ -2,6 +2,7 @@ package com.freedom.f_aop;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.aspectj.lang.JoinPoint;
 
 /**
  * Created by kuiyuxiang on 2017/4/25.
@@ -15,5 +16,8 @@ public class MyAspect implements MethodInterceptor {
         Object object = methodInvocation.proceed();
         System.out.println("after");
         return object;
+    }
+
+    public void myBefore(JoinPoint joinPoint) throws Throwable {
     }
 }
