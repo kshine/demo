@@ -9,18 +9,32 @@
 
     <!-- 目标类-->
     <bean id="userServiceId" class="com.freedom.h_aspect.UserServiceImpl"></bean>
-    <bean id="myAspectId" class="com.freedom.h_aspect.MyAspect2"></bean>
+    <bean id="myAspectId2" class="com.freedom.h_aspect.MyAspect2"></bean>
 
     <!-- aspect 切面类 声明为切面 ref 引用bean
         前置通知 before
         method  通知方法
         pointcut  单独制定切入点
         pointcut-ref  共享pointcut 切入点
+
+        returning 通知方法第二个参数的名称
+
+        环绕通知 参数必须是 ProceedingJoinPoint
+        抛出异常
     -->
     <aop:config>
-        <aop:aspect ref="myAspectId">
+        <aop:aspect ref="myAspectId2">
             <aop:pointcut id="myPointcut" expression="execution(* com.freedom.h_aspect.UserService.*(..))"></aop:pointcut>
+
             <aop:before method="myBefore" pointcut-ref="myPointcut"></aop:before>
+
+            <aop:after-returning method="myAfterReturning" pointcut-ref="myPointcut" returning="object"></aop:after-returning>
+
+            <aop:around method="myAround" pointcut-ref="myPointcut"></aop:around>
+
+            <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointcut" throwing="e"></aop:after-throwing>
+
+            <aop:after method="myAfter" pointcut-ref="myPointcut"></aop:after>
         </aop:aspect>
     </aop:config>
 

@@ -11,8 +11,10 @@ public class UserServiceImpl  implements  UserService{
     }
 
     @Override
-    public void updateUser() {
+    public String updateUser() {
         System.out.println("aspect updateUser");
+        int i = 1/0;
+        return "Hello,returning";
     }
 
     @Override

@@ -5,7 +5,7 @@ package com.freedom.h_aspect;
  */
 public interface UserService {
     public void addUser();
-    public void updateUser();
+    public String updateUser();
     public void deleteUser();
 
 }

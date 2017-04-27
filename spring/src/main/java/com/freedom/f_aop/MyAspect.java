@@ -18,6 +18,4 @@ public class MyAspect implements MethodInterceptor {
         return object;
     }
 
-    public void myBefore(JoinPoint joinPoint) throws Throwable {
-    }
 }
