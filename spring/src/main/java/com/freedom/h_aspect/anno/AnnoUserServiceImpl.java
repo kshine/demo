@@ -16,6 +16,7 @@ public class AnnoUserServiceImpl implements AnnoUserService{
     @Override
     public String updateUser() {
         System.out.println("注解 updateUser");
+      //  int i = 1/0;
         return "anno aspect 注解返回";
     }
 

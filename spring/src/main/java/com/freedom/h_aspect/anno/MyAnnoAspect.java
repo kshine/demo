@@ -40,4 +40,14 @@ public class MyAnnoAspect {
         System.out.println("注解aop 环绕通知后");
         return obj;
     }
+
+    @AfterThrowing(value = "myPointCut()",throwing = "e")
+    public void myAfterThrowing(JoinPoint joinPoint,Throwable e){
+        System.out.println("抛出异常通知 ： " + e.getMessage());
+    }
+
+    @After(value = "myPointCut()")
+    public void myAfter(JoinPoint joinPoint){
+        System.out.println("最终通知");
+    }
 }
