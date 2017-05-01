@@ -10,6 +10,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *           2 service @Service
  *           3 web层 @Controller
  *           @Qualifier("studentDaoId")  指定id注入
+ *
+ *           @Autowired 按类型
+ *
+ *           按名称
+ *           @Autowired
+ *           @Qualifire("名称")
  */
 public class TestWeb {
     public static void main(String[] args) {
