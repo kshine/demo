@@ -3,5 +3,6 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/beetlsql/src/main/resources/database.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/mybatis/src/main/resources/mybatis.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/spring/src/main/resources/jdbcTemplate.sql" dialect="MySQL" />
   </component>
 </project>
