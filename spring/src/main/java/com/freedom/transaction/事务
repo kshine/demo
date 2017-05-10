@@ -12,3 +12,17 @@ serializable
 平台事务管理器 PlatformManager
 事务详情   TransactionDefinition  确定 隔离级别 是否只读 超时等
 事务状态   TransactionStatus  保存点 事务是否完成
+
+      tx包
+      平台事务管理器 PlatformTransactionManager spring管理事务 必须使用事务管理器
+      事务详情   TransactionDefinition  确定 隔离级别 是否只读 超时等 进行事务配置时，必须配置详情
+      事务状态   TransactionStatus  保存点 事务是否完成
+      实现类  jdbc包和orm包
+
+      DataSourceTransactionManager  jdbc开发事务时 jdbcTemplate
+      HibernateTransactionManager   Hibernate
+
+      getTransaction(TransactionDefinition definition)  获得事务状态
+      commit(TransactionStatus status)
+      rollback(TransactionStatus status)
+
