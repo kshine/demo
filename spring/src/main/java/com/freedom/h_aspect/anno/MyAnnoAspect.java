@@ -20,7 +20,7 @@ public class MyAnnoAspect {
 
     //前置通知
     //@Before("execution(* com.freedom.h_aspect.anno.AnnoUserServiceImpl.*(..))")
-  //  @Before( value = "myPointCut()")
+    //@Before( value = "myPointCut()")
     public void myBefore(JoinPoint joinPoint){
         System.out.println("myAnnoAspect myBefore注解前置通知:"+joinPoint.getSignature().getName());
     }
