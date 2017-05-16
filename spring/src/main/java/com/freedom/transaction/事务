@@ -28,3 +28,15 @@ serializable
       commit(TransactionStatus status)
       rollback(TransactionStatus status)
 
+      事务传播行为  required / requires_new / nested
+      required 默认值 必须   A如果有事务 B使用该事务  如果A没有事务 B创建新事务
+      supported            A如果有事务 B使用该事务  如果A没有事务 B也没有事务
+      mandatory 强制        A如果有事务 B使用该事务  如果A没有事务 B将抛异常
+      requires_new         A如果有事务 将挂起 B创建一个新事务 如果A没有事务 B创建一个新事务
+      not_supported 不支持  永远以非事务执行 存在的事务将会被挂起
+                           A如果有事务将挂起 B以非事务执行
+      never         不     不支持当前事务，有事务抛异常
+                           如果A有事务 将抛异常 如果A没有事务 将以非事务执行
+      nested        嵌套    A和B底层采用保存点机制，形成嵌套事务
+
+
