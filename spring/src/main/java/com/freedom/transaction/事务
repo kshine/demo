@@ -58,4 +58,5 @@ serializable
    3 配置AOP
 
    aop代理 基于注解
-   目标类 加注解 @Transactional   类或者方法
+   目标类 加注解 @Transactional
+   类或者方法
