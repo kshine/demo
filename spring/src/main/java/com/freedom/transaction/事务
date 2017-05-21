@@ -46,3 +46,16 @@ serializable
    2. 模板需要输入事务管理器   配置
 
    DataSourceTransactionManager   需要注入DataSource
+
+   半自动
+   管理事务的代理工厂bean TransactionProxyFactoryBean
+   1 getBean() 获得代理对象
+   2 配置一个代理
+
+   aop代理 基于xml
+   1 配置管理器
+   2 配置事务详情
+   3 配置AOP
+
+   aop代理 基于注解
+   目标类 加注解 @Transactional   类或者方法

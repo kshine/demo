@@ -10,11 +10,11 @@
             <property name="password" value="123456"></property>
         </bean>
 
-        <bean id="accountDao" class="com.freedom.transaction.dao.impl.AccountDaoImpl">
+        <bean id="accountDao" class="com.freedom.transaction3.dao.impl.AccountDaoImpl">
             <property name="dataSource" ref="dataSourceId"></property>
         </bean>
 
-        <bean id="accountService" class="com.freedom.transaction.service.impl.AccountServiceImpl">
+        <bean id="accountService" class="com.freedom.transaction3.service.impl.AccountServiceImpl">
             <property name="accountDao" ref="accountDao"></property>
             <property name="transactionTemplate" ref="transactionTemplate"></property>
         </bean>
@@ -29,10 +29,19 @@
         </bean>
 
         <!--代理对象 接口 目标类 事务管理器 事务属性 那些方法要用事务配置
-            prop.key  确定那些方法使用当前事务
-            prop.text 配置事务详情
-            传播行为 隔离级别 是否只读 异常回滚 - + exception
+        prop.key  确定那些方法使用当前事务
+        prop.text 配置事务详情
+        传播行为 隔离级别 是否只读 异常回滚 - + exception
         -->
-
+        <bean id="proxyAccountService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+            <property name="proxyInterfaces" value="com.freedom.transaction3.service.AccountService"></property>
+            <property name="target" ref="accountService"></property>
+            <property name="transactionManager" ref="txManager"></property>
+            <property name="transactionAttributes" >
+                <props>
+                    <prop key="transfer">PROPAGATION_REQUIRED,ISOLATION_DEFAULT</prop>
+                </props>
+            </property>
+        </bean>
 
 </beans>
