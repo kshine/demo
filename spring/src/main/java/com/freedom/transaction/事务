@@ -40,3 +40,9 @@ serializable
       nested        嵌套    A和B底层采用保存点机制，形成嵌套事务
 
 
+  手动管理事务
+  TransactionTemplate
+   1. service 获得  配置模板并注入给service
+   2. 模板需要输入事务管理器   配置
+
+   DataSourceTransactionManager   需要注入DataSource

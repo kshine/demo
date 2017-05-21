@@ -16,6 +16,16 @@
 
         <bean id="accountService" class="com.freedom.transaction.service.impl.AccountServiceImpl">
             <property name="accountDao" ref="accountDao"></property>
+            <property name="transactionTemplate" ref="transactionTemplate"></property>
+        </bean>
+
+        <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate" >
+            <property name="transactionManager" ref="txManager"></property>
+        </bean>
+
+         <!--事务管理器 需要连接池获得 -->
+        <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSourceId"></property>
         </bean>
 
 </beans>
