@@ -4,8 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
-import java.nio.channels.Channel;
-import java.nio.channels.FileChannel;
+import java.nio.channels.*;
 
 /**
  * Created by kshine on 2017/4/20.
@@ -55,11 +54,12 @@ public class NIODemo1 {
         ByteBuffer buffer = ByteBuffer.allocate(1024);
         buffer.flip();
         fc.read(buffer);
-//
-//
-//        FileOutputStream fos = new FileOutputStream( "nio.txt" );
-//        FileChannel fc2 = fos.getChannel();
-//        fc.write( buffer );
+
+
+
+        DatagramChannel datagramChannel = DatagramChannel.open();
+        SocketChannel socketChannel = SocketChannel.open();
+        ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
 
 
     }
